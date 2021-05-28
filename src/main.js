@@ -229,7 +229,7 @@ Chat.prototype = {
     setMyInfo() {
         $('.my-info').innerHTML = `<div class="user-item" style="border-bottom: 1px solid #eee;margin-bottom: 30px;">
                             <img src="${this.userImg}"  style="width: 60px;height: 60px;border-radius:50%">
-                            <span style="border-radius:5rem;width:fit-content;background-color:white;color:black;padding:3px;"><small><i class="fas fa-user"></i> - </small>${this.userName}&nbsp;<span><i class="fas fa-circle text-success"></i></span></span>
+                            <span style="border-radius:5rem;width:fit-content;background-color:white;color:black;padding:3px;"><small><i class="fas fa-user" style="font-size:smaller"></i> - </small>${this.userName}&nbsp;<span><i class="fas fa-circle text-success"></i></span></span>
                         </div>`;
     },
     drawUserList() {
@@ -238,7 +238,7 @@ Chat.prototype = {
             if (item.id !== this.id) {
                 str += `<div class="user-item friend-item" onclick="changeChat(this)">
                             <img src="${item.userImg}"  style="width: 60px;height: 60px; border-radius:50%">
-                            <span style="border-radius:5rem;width:fit-content;background-color:white;color:black;padding:3px;"><i class="fas fa-users"></i> ${item.userName}&nbsp;<span><i class="fas fa-circle text-success"></i></span></span>
+                            <span style="border-radius:5rem;width:fit-content;background-color:white;color:black;padding:3px;"><i class="fas fa-users"></i> ${item.userName}&nbsp;<span><i class="fas fa-circle text-success" style="font-size:smaller"></i></span></span>
                             <input type="hidden" value="${item.id}">
                             <div class="circle me_${item.id}" style="display: none;">0</div>
                         </div>`;
@@ -468,7 +468,7 @@ function createChatGroup() {
         if (item.id !== chat.id) {
             str += `<div class="user-item friend-item" onclick="selectChatGroup(this)">
                             <img src="${item.userImg}"  style="width: 60px;height: 60px;border-radius:50%;">
-                            <span style="border-radius:5rem;width:fit-content;background-color:white;color:black;padding:3px;"><small><i class="fas fa-users">&nbsp;</i></small>${item.userName}&nbsp;<span><i class="fas fa-circle text-success"></i></span></span>
+                            <span style="border-radius:5rem;width:fit-content;background-color:white;color:black;padding:3px;"><small><i class="fas fa-users">&nbsp;</i></small>${item.userName}&nbsp;<span><i class="fas fa-circle text-success" style="font-size:smaller"></i></span></span>
                             <input type="hidden" value="${item.id}">
                             <div class="circle me_${item.id}" style="display: none;">0</div>
                         </div>`;
@@ -482,7 +482,7 @@ function selectChatGroup(e) {
     let img = e.children[0].getAttribute('src');
     let userName = e.children[1].innerHTML;
     let id = e.children[2].getAttribute('value');
-    $('.now-select').innerHTML += `<div class="mt-1" style="border-radius:5rem;width:fit-content;background-color:white;color:black;padding:3px;">${userName}&nbsp;<span><i class="far fa-check-circle text-success"></i></span></div>`
+    $('.now-select').innerHTML += `<div class="mt-1" style="border-radius:5rem;width:fit-content;background-color:white;color:black;padding:3px;">${userName}&nbsp;<span><i class="far fa-check-circle text-success" style="font-size:smaller"></i></span></div>`
     $('.now-select').style.display = 'block'
     if (chat.chatGroupArr) {
         chat.chatGroupArr.push({
